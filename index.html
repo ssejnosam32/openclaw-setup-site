@@ -458,6 +458,95 @@
             max-width: 600px;
         }
 
+        /* ── DIY Section ──────────────────────────── */
+        .diy-section {
+            padding: var(--space-xl) 0;
+            position: relative;
+        }
+        .diy-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+        }
+        .diy-header {
+            max-width: 600px;
+            margin-bottom: var(--space-lg);
+        }
+        .diy-header .label { margin-bottom: var(--space-sm); }
+        .diy-header .heading-lg { margin-bottom: var(--space-md); }
+        .diy-subhead {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .diy-subhead:last-of-type {
+            color: var(--text);
+            font-weight: 500;
+        }
+        .diy-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            margin-bottom: var(--space-md);
+        }
+        .diy-col {
+            background: var(--bg);
+            padding: var(--space-md);
+        }
+        .diy-col h3 {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: var(--space-sm);
+        }
+        .diy-col-bad h3 { color: #e57373; }
+        .diy-col-good h3 { color: var(--accent); }
+        .diy-col ul {
+            list-style: none;
+            display: grid;
+            gap: 0.9rem;
+        }
+        .diy-col li {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            line-height: 1.5;
+        }
+        .diy-x, .diy-check {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            margin-top: 0.1rem;
+        }
+        .diy-x {
+            color: #e57373;
+            border: 1px solid rgba(229, 115, 115, 0.3);
+        }
+        .diy-check {
+            color: var(--accent);
+            border: 1px solid var(--accent-mid);
+        }
+        .diy-bottom {
+            max-width: 650px;
+        }
+        .diy-bottom p {
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
         /* ── Process ─────────────────────────────── */
         .process {
             padding: var(--space-xl) 0;
@@ -771,6 +860,7 @@
         @media (max-width: 768px) {
             .intro-grid { grid-template-columns: 1fr; gap: var(--space-md); }
             .why-grid { grid-template-columns: 1fr; }
+            .diy-comparison { grid-template-columns: 1fr; }
             .process-steps { grid-template-columns: 1fr; gap: var(--space-md); }
             .process-steps::before { display: none; }
             .services-header { flex-direction: column; align-items: flex-start; }
@@ -787,7 +877,7 @@
     <nav id="nav">
         <div class="wrap">
             <a href="/" class="nav-logo"><img src="logo.png" alt="OpenClaw Setup" style="height:32px;width:32px;border-radius:6px;vertical-align:middle;margin-right:0.5rem;object-fit:cover;">OpenClaw <span>Setup</span></a>
-            <a href="https://cal.com/jess-mason/meeting" class="nav-cta">Get Set Up</a>
+            <a href="https://cal.com/jess-mason/openclaw-consult" class="nav-cta">Get Set Up</a>
         </div>
     </nav>
 
@@ -802,7 +892,7 @@
                     <p class="hero-desc" style="margin:0;">I'm <strong>Jess Stetson Mason</strong>, founder of <a href="https://novasoftai.com" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-mid);">NovaSoft AI</a>. I handle your entire OpenClaw setup from start to finish. Server deployment, channel connections, custom prompts tailored to your business, security hardening, and hands-on training. You get a discovery session, a written roadmap, and a fully running AI assistant on a Mac Mini or VPS in 1 to 3 days.</p>
                 </div>
                 <div>
-                    <a href="https://cal.com/jess-mason/meeting" class="btn">
+                    <a href="https://cal.com/jess-mason/openclaw-consult" class="btn">
                         Book Your Setup Call <span class="arrow">→</span>
                     </a>
                 </div>
@@ -910,6 +1000,47 @@
         </div>
     </section>
 
+    <!-- Why Not DIY -->
+    <section class="diy-section">
+        <div class="wrap">
+            <div class="diy-header reveal">
+                <p class="label">The Honest Truth</p>
+                <h2 class="heading-lg">Can you set this up yourself?</h2>
+                <p class="diy-subhead">Yes. OpenClaw is open source. The docs are public. You could do it yourself.</p>
+                <p class="diy-subhead">Here's why most people shouldn't.</p>
+            </div>
+            <div class="diy-content reveal">
+                <div class="diy-comparison">
+                    <div class="diy-col diy-col-bad">
+                        <h3>DIY Setup</h3>
+                        <ul>
+                            <li><span class="diy-x">✕</span>20-40 hours learning config files, integrations, and troubleshooting</li>
+                            <li><span class="diy-x">✕</span>Days lost to cryptic error messages and dead-end forums</li>
+                            <li><span class="diy-x">✕</span>Wrong model choices waste money or underperform</li>
+                            <li><span class="diy-x">✕</span>Security gaps you won't know about until it's too late</li>
+                            <li><span class="diy-x">✕</span>Trial and error on prompts that should just work</li>
+                            <li><span class="diy-x">✕</span>No one to call when it breaks at 2am</li>
+                        </ul>
+                    </div>
+                    <div class="diy-col diy-col-good">
+                        <h3>Expert Setup</h3>
+                        <ul>
+                            <li><span class="diy-check">✓</span>Production-ready in 1-3 days, not weeks</li>
+                            <li><span class="diy-check">✓</span>Every integration done right the first time</li>
+                            <li><span class="diy-check">✓</span>Model selection optimized for your budget and use case</li>
+                            <li><span class="diy-check">✓</span>Security locked down from day one</li>
+                            <li><span class="diy-check">✓</span>Battle-tested prompts tailored to your business</li>
+                            <li><span class="diy-check">✓</span>Someone who's solved every problem you'll hit</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="diy-bottom reveal">
+                    <p>The real cost isn't the consulting fee. It's the 40 hours you'll spend reinventing solutions I've already built. Your time is worth more than that.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Process -->
     <section class="process">
         <div class="wrap">
@@ -998,7 +1129,7 @@
                             </div>
                         </li>
                     </ul>
-                    <a href="https://cal.com/jess-mason/meeting" class="btn" style="width:100%;justify-content:center;margin-top:1.5rem;">
+                    <a href="https://cal.com/jess-mason/openclaw-consult" class="btn" style="width:100%;justify-content:center;margin-top:1.5rem;">
                         Get Your OpenClaw Set Up <span class="arrow">→</span>
                     </a>
                 </div>
@@ -1064,7 +1195,7 @@
         <div class="wrap reveal">
             <h2 class="heading-lg">Ready for your <em>OpenClaw setup</em>?</h2>
             <p>One call. No pitch, no pressure. Just a conversation about getting your OpenClaw set up and what it can do for your business.</p>
-            <a href="https://cal.com/jess-mason/meeting" class="btn">
+            <a href="https://cal.com/jess-mason/openclaw-consult" class="btn">
                 Book Your Setup Call <span class="arrow">→</span>
             </a>
         </div>
